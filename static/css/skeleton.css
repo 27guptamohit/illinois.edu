@@ -1,0 +1,148 @@
+/*
+ * Skeleton (cleaned for Bootstrap projects)
+ * Keeps only neutral helpers that don't override Bootstrap:
+ * - Forms (base box model only)
+ * - Lists (inner markers)
+ * - Code blocks
+ * - Tables (padding/borders)
+ * - Spacing helpers
+ * - Utilities + clearfix
+ * - HR
+ */
+
+/* ========= Forms (neutral) ========= */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+}
+
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal;
+}
+
+/* ========= Lists ========= */
+ul { list-style: circle inside; }
+ol { list-style: decimal inside; }
+ol, ul {
+  padding-left: 0;
+  margin-top: 0;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%;
+}
+li { margin-bottom: 1rem; }
+
+/* ========= Code ========= */
+code {
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: #F1F1F1;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px;
+}
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+
+/* ========= Tables ========= */
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1;
+}
+th:first-child, td:first-child { padding-left: 0; }
+th:last-child,  td:last-child  { padding-right: 0; }
+
+/* ========= Spacing ========= */
+button, .button { margin-bottom: 1rem; }
+input, textarea, select, fieldset { margin-bottom: 1.5rem; }
+pre, blockquote, dl, figure, table, p, ul, ol, form { margin-bottom: 2.5rem; }
+
+/* ========= Utilities ========= */
+.u-full-width   { width: 100%; box-sizing: border-box; }
+.u-max-full-width { max-width: 100%; box-sizing: border-box; }
+.u-pull-right   { float: right; }
+.u-pull-left    { float: left; }
+
+/* ========= Misc ========= */
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3.5rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1;
+}
+
+/* ========= Clearing (clearfix) ========= */
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ========= Media query hooks (optional) ========= */
+@media (min-width: 400px) {}
+@media (min-width: 550px) {}
+@media (min-width: 750px) {}
+@media (min-width: 1000px) {}
+@media (min-width: 1200px) {}

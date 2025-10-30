@@ -1,0 +1,203 @@
+1. The first settings that is important for us to check is to have the app named: 'django.contrib.staticfiles'
+    app location: illinois/settings.py
+
+    INSTALLED_APPS = [
+    ......
+    'django.contrib.staticfiles',   # It’s a built-in Django app that makes it easy to manage and serve static files during development and deployment.
+    ......
+]
+
+You activate 'django.contrib.staticfiles' by default in your INSTALLED_APPS.
+
+When this app is active, Django will automatically look for static files in:
+	•	Each app’s static/ directory (e.g., students/static/students/…)
+	•	Any folders listed in STATICFILES_DIRS (like BASE_DIR / "static")
+
+So, when you run:
+
+    •	"python manage.py runserver"
+
+Django’s development server can serve those files at /static/… URLs, all because of django.contrib.staticfiles.
+So you can use:
+
+    •	{% load static %}                                                     # This static tag goes on top of the html file
+    •	<link rel="stylesheet" href="{% static 'css/style.css' %}">           # {% static 'address'} let's django locate the static file settings
+
+and Django finds and serves the file automatically.
+
+IMPORTANT: Without this app, Django would not know where to find your static files.
+-------------------------------------------------------------------------------------
+ANALOGY:
+Think of django.contrib.staticfiles as Django’s “post office” for static assets:
+	•	It knows where all your CSS/JS/images live.
+	•	It delivers them to the browser in development.
+	•	It bundles them all up for shipping (deployment) later.
+
+Without it?
+You’d have to manually:
+	•	Configure URLs for each CSS/JS file.
+	•	Handle serving those files yourself during development.
+	•	Write custom scripts to copy them into one deploy folder.
+
+That’s a ton of work Django removes from you.
+-------------------------------------------------------------------------------------
+1.1 Important lines of code: illinois/settings.py
+
+    INSTALLED_APPS = [
+    ......
+    'django.contrib.staticfiles',   # It’s a built-in Django app that makes it easy to manage and serve static files during development and deployment.
+    ......
+]
+
+
+STATIC_URL = 'static/'            # Location/name-pattern of location where static files would be present.
+
+-------------------------------------------------------------------------------------
+1.2 Important lines of code: {app/feature folder}/{any html file}
+
+    •	{% load static %}                                                     # This static tag goes on top of the html file
+    •	<link rel="stylesheet" href="{% static 'css/style.css' %}">           # {% static 'address'} let's django locate the static file settings
+
+==============================================================================================================================
+1.3 Just like the 'templates' directory, we are going to create 'static' folder in the current stage. In it, put:
+
+
+# Borrowed from: Pinkham, Andrew. Django Unleashed. Sams Publishing, 2015.
+# Slightly modified by Mohit Gupta.
+
+	•	normalize.css → cleans & aligns browser defaults.
+	•	skeleton.css → provides a minimal grid and base components.
+	•	style.css → your project’s branding (colors, layout, logo, etc.).
+
+-------------------------------------------------------------------------------------
+
+A. NORMALIZE.CSS
+
+
+#### The problem normalize.css solves:
+
+Every browser (Chrome, Firefox, Safari, Edge, etc.) applies its own default styles to HTML elements.
+For example:
+	•	<h1> might be 32 px in Chrome, but 36 px in Firefox.
+	•	<button> might have a gray gradient in Safari but flat white in Chrome.
+	•	<ul> might have different left padding in each browser.
+
+When you’re building a site, these little differences make your layout look inconsistent across devices.
+
+#### normalize.css is a CSS reset library that:
+
+	1.	Removes inconsistent browser defaults
+It strips away the weird, browser-specific margins, paddings, and fonts that HTML tags come with.
+	2.	Keeps sensible defaults
+It doesn’t wipe everything to zero (like older “reset.css” files).
+Instead, it keeps useful defaults—like making links blue and underlined—but ensures they behave the same in every browser.
+	3.	Sets a consistent baseline
+It makes sure that fundamental elements (html, body, button, input, table, img, etc.) start from the same look everywhere, so your own CSS builds on a predictable foundation.
+
+### Analogy
+
+Think of normalize.css as ironing a wrinkled shirt before painting it.
+It doesn’t design the shirt, it just makes sure the “fabric” (your HTML elements) lies flat and behaves predictably before you add your own styles.
+
+-------------------------------------------------------------------------------------
+B. SKELETON.CSS
+
+Think of Skeleton as a tiny CSS framework (like a mini version of Bootstrap or Tailwind).
+Purpose: it saves you from writing basic layout code from scratch.
+
+
+It gives you:
+	•	A responsive 12-column grid system
+(so your page adjusts on small vs large screens)
+	•	Clean default typography (fonts, spacing, line-heights)
+	•	Nice buttons, forms, and tables out of the box
+	•	A few reusable utility classes (.container, .row, .button, etc.)
+
+Example:
+<div class="container">
+  <div class="row">
+    <div class="six columns">
+      <h4>Left Side</h4>
+    </div>
+    <div class="six columns">
+      <h4>Right Side</h4>
+    </div>
+  </div>
+</div>
+
+Skeleton automatically turns that into two equal columns side by side, no JavaScript, no heavy CSS.
+-------------------------------------------------------------------------------------
+B. STYLE.CSS
+
+This file is yours, it defines what makes your site look like your project.
+
+Here you:
+	•	Add your colors, fonts, and logo styles (UIUC blue/orange).
+	•	Style your header, navbar, cards, search bar, stats tables, etc.
+	•	Override Skeleton’s defaults to match your branding.
+	•	Add utilities like .muted, .badge, or .stat-chip.
+
+Example:
+
+.site-header {
+  background: #13294B; /* Illinois Blue */
+  border-bottom: 4px solid #E84A27; /* Illinois Orange */
+  color: white;
+}
+
+.button-primary {
+  background: #E84A27;
+  color: white;
+  border-radius: 8px;
+}
+
+==============================================================================================================================
+
+2. If you are using project level structure for pasting the css files, then paste this into your illinois/settings.py
+to set the location for static files
+
+        INSTALLED_APPS = [
+            # ...
+            "django.contrib.staticfiles",
+        ]
+
+        STATIC_URL = "/static/"
+
+        # New addition:
+        # Because you're using a project-level /static folder:
+        from pathlib import Path
+        BASE_DIR = Path(__file__).resolve().parent.parent
+        STATICFILES_DIRS = [BASE_DIR / "static"]
+
+ ==============================================================================================================================
+3. Debugging:
+
+If the static files do not load even after all the steps followed, bust the cache using:
+
+        •	<link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ now|date:'U' }}">
+
+
+What “cache busting” means
+
+When you’re working on CSS (or JS), your browser saves old versions of those files so pages load faster next time.
+That’s called browser caching.
+
+So even after you update style.css, your browser might still use the cached old version (stored locally), meaning you don’t see your changes right away.
+
+That’s when you “bust the cache.”
+
+“Busting the cache” simply means
+
+Change the file’s URL slightly (without actually renaming it) so the browser thinks it’s new and forces a fresh download.
+
+In Django templates, the easiest trick is to append a version or timestamp as a query string:
+        •	<link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ now|date:'U' }}">
+
+--------------------------------------------------------
+# IMPORTANT: Automatic cache-busting in production
+
+Django’s 'ManifestStaticFilesStorage' fingerprints each static file’s content and bakes that hash into the filename during collectstatic.
+    Example:
+    /static/css/style.css → /static/css/style.4f6a9c3f1a.css
+    If the file changes, the hash changes → browsers must fetch the new file.
+

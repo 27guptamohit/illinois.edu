@@ -1,0 +1,29 @@
+1. In the imports for charts: students/views.py
+
+    > from django.db.models import Count         <- Here
+
+Count is not one of our models.
+It’s a function (called an aggregate) that Django provides to perform SQL COUNT() operations inside queries.
+
+==================================================================================================================
+2.
+
+    > data = Section.objects.annotate(student_count=Count("section_related_name"))
+
+Here’s what happens in this code:
+
+	•	Section.objects.annotate(...) means “take each section and add an extra field (student_count) that counts related students.”
+	•	The "section_related_name" string matches the related_name I defined in my Student model (students/models.py):
+	    > section = models.ForeignKey(
+                       Section,
+                       on_delete=models.PROTECT,
+                       related_name="section_related_name"
+                       )
+
+    •	Behind the scenes, Django runs SQL like:
+
+        > SELECT section.id, section.code, COUNT(student.id) AS student_count
+          FROM section
+          LEFT JOIN student ON student.section_id = section.id
+          GROUP BY section.id;
+

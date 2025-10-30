@@ -1,0 +1,33 @@
+<!-- Paste code here: templates/students/student_list.html -->
+
+<!-- Step 0: Paste the output of this code inside the base.html -->
+{% extends "students/base.html" %}
+
+{% block title %}
+    Student List
+{% endblock %}
+
+{% block student_content %}
+    <h2>Student List</h2>
+    <ul>
+
+        <!-- So the student_list_html has the list of all the students
+         that are getting passed from students/views.py.
+         Go to that file and try to locate 'student_list_html' -->
+
+        <!-- Step 1: Create a for loop. This acts similar to the 'for' loop in python. -->
+        {% for student_for_loop in student_list_html %}
+
+            <li>
+                <a href=""> {{ student_for_loop }}</a>
+            </li>
+
+        <!-- Step 2: This function tells what to return in case table has no data. -->
+        {% empty %}
+
+            <li>No students yet!</li>
+
+        <!-- Step 3: Tell html here that the for loop has ended.-->
+        {% endfor %}
+    </ul>
+{% endblock %}

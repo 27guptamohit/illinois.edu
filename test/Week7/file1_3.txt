@@ -1,0 +1,25 @@
+# Add this file:  illinois/.gitignore
+# Python
+
+# ignores compiled Python bytecode files.
+*.pyc
+
+#  ignores temp/editor backup files.
+*~
+
+# ignores all bytecode folders.
+__pycache__/
+
+# macOS Finder junk, always safe to ignore.
+.DS_Store
+
+# Django collected static files (not your source /static/)
+staticfiles/
+media/
+
+# SQLite DB (optional, if you don't want to track local data)
+# db.sqlite3
+
+# Virtual environments
+# venv/
+# env/

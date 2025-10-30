@@ -1,0 +1,33 @@
+<!-- Paste code here: templates/students/student_list.html -->
+<!-- We are now linking the student details through get_absolute_url -->
+
+
+{% extends "students/base.html" %}
+
+{% block title %}
+    Student List
+{% endblock %}
+
+{% block content %}
+    <h2>Student List</h2>
+    <ul>
+
+        {% for student_for_loop in student_rows_for_looping %}
+
+            <!-- I'm now attaching the link for students' details -->
+            <!-- Go to student/urls.py to find out the naming pattern for student details. -->
+            <li>
+            <!-- Paste code here: templates/students/student_list.html -->
+                <a href="{{ student_for_loop.get_absolute_url }}"> {{ student_for_loop }}</a>
+            </li>
+
+
+        {% empty %}
+
+            <li>No students yet!</li>
+
+
+        {% endfor %}
+    </ul>
+{% endblock %}
+

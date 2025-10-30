@@ -1,0 +1,49 @@
+In file5_1, and in some previous files, you might have come across approaches where right after the field/column name and after related_names of models, double underscores were used.
+
+__ tells Django:
+
+“Go through this relationship or apply this condition.”
+
+For example, in Student model, suppose there is a filed called 'name,' then in the views.py while running queries it might say:
+
+# name__is_active = True.
+
+    •	These double underscores are called Django’s double-underscore (ORM lookup) syntax.
+	•	It’s Django’s way of chaining across fields, relations, and conditions.
+
+Two main uses of __
+	1.	Cross relations (follow ForeignKey/related_name)
+	•	Example:
+
+	•	Section.objects.filter(enrollments_related_name__is_active=True)
+
+		→ “Find all sections that have at least one active enrollment.”
+		•	You’re moving across models here, from Section to Enrollments.
+
+
+	2.	Field lookups (filters on a field)
+	•	Example:
+
+	•	Student.objects.filter(first_name__icontains="ali")
+		→ “Find all students where first_name contains ‘ali’, case-insensitive.”
+    	•	You’re applying a lookup on a field.
+
+=========================================================================================================
+More examples:
+
+# 1. Field lookups
+Student.objects.filter(last_name__startswith="S")
+# → last_name LIKE 'S%'
+
+Student.objects.filter(email__endswith=".edu")
+# → email LIKE '%.edu'
+
+# 2. Traversing relations
+Section.objects.filter(section_related_name__first_name="Alice")
+# → find sections where a student named Alice is enrolled
+
+# 3. Combining both
+Section.objects.filter(
+    enrollments_related_name__student__nickname__icontains="bob"
+)
+# → find sections where an enrolled student has a nickname containing “bob”

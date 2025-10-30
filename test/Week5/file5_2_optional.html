@@ -1,0 +1,27 @@
+<!-- Paste code here: templates/students/student_list.html -->
+{% extends "students/base.html" %}
+
+{% block title %}
+    Student List
+{% endblock %}
+
+{% block student_content %}
+    <h2>Student List</h2>
+    <ul>
+
+        <!-- Instead of student_list_html, the context variable gets replaced by: object_list-->
+        {% for student_for_loop in student_rows_for_looping %}
+
+            <li>
+                <a href=""> {{ student_for_loop }}</a>
+            </li>
+
+        <!-- Step 2: This function tells what to return in case table has no data. -->
+        {% empty %}
+
+            <li>No students yet!</li>
+
+        <!-- Step 3: Tell html here that the for loop has ended.-->
+        {% endfor %}
+    </ul>
+{% endblock %}

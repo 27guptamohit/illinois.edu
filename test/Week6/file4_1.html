@@ -1,0 +1,64 @@
+<!-- Paste code here: templates/students/student_list.html -->
+<!-- Writing code for search and filter block -->
+<!-- Send-Search block: It will send the data to the view when the search button is clicked. -->
+
+{% extends "students/base.html" %}
+
+{% block title %}
+    Student List
+{% endblock %}
+
+
+<!------------------------------------------------------------>
+<!-- Block: Content -->
+
+{% block content %}
+  <h2>Student List</h2>
+  <ul>
+    {% for student_for_loop in student_rows_for_looping %}
+
+      <li>
+          <a href="{{ student_for_loop.get_absolute_url }}">
+              {{ student_for_loop }}
+          </a>
+      </li>
+
+    {% empty %}
+      <li>No students yet!</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+<!------------------------------------------------------------>
+<!-- Block: send_search -->
+
+{% block send_search %}
+
+    <!--
+    • The <form> is like a mail envelope.
+    • The <input> is the message you write inside.
+    • The method="get" says “put my message in the URL” → /students/?q=Alice.
+    • Django reads the message and uses it to filter students.
+  -->
+  <form method="get" class="row g-2 mb-3">
+
+    <div class="col-auto">
+      <input type="search" name="q" value="{{ q }}" class="form-control"
+             placeholder="Search by first name">
+    </div>
+
+    <div class="col-auto">
+
+      <button class="btn btn-primary" type="submit">
+          Search
+      </button>
+
+      {% if q %}
+        <a class="btn btn-outline-secondary" href="{% url 'student-list-url' %}">Clear</a>
+      {% endif %}
+
+    </div>
+
+  </form>
+
+{% endblock %}

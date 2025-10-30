@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+.desktop { display: none; }
+@media (min-width: 550px) {
+  .mobile { display: none; }
+  .desktop { display: block; }
+}
+.center { text-align: center; }
+
+.errorlist { color: #dd1144; }
+.helptext { display: block; margin: -1em 0 2em; color: #555; }
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+html, body { height: 100%; background: #fff; }
+body { background-color: #fff; }
+
+/* ==========================================================================
+   Illinois theme via Bootstrap CSS variables
+   (affects buttons, badges, alerts, links, progress, etc.)
+   ========================================================================== */
+:root {
+  --il-blue: #13294B;              /* Illinois Blue */
+  --il-orange: #E84A27;            /* Illinois Orange */
+  --il-orange-dark: #cf3f21;
+
+  /* Bootstrap palette overrides */
+  --bs-primary: var(--il-blue);
+  --bs-primary-rgb: 19, 41, 75;
+
+  --bs-link-color: var(--il-blue);
+  --bs-link-hover-color: var(--il-orange);
+
+  /* Softer rounding (optional) */
+  --bs-border-radius: .5rem;
+  --bs-border-radius-sm: .375rem;
+  --bs-border-radius-lg: .75rem;
+}
+
+/* Ensure primary surfaces use Illinois Blue */
+.bg-primary { background-color: var(--il-blue) !important; }
+
+/* Primary buttons use Illinois Orange accents */
+.btn-primary{
+  --bs-btn-color:#fff;
+  --bs-btn-bg:var(--il-orange);
+  --bs-btn-border-color:var(--il-orange);
+  --bs-btn-hover-bg:var(--il-orange-dark);
+  --bs-btn-hover-border-color:var(--il-orange-dark);
+  --bs-btn-active-bg:var(--il-orange-dark);
+  --bs-btn-active-border-color:var(--il-orange-dark);
+  --bs-btn-disabled-bg:var(--il-orange);
+  --bs-btn-disabled-border-color:var(--il-orange);
+}
+
+/* Links */
+a { color: var(--il-blue); }
+a:hover, a:focus { color: var(--il-orange); }
+
+/* Navbar tweak: subtle hover */
+.navbar .nav-link { color:#555; font-weight:600; letter-spacing:.02em; }
+.navbar .nav-link:hover, .navbar .nav-link:focus { color: var(--il-orange); }
+
+/* Tables: a touch more contrast */
+.table thead th { color: var(--il-blue); }
+.table-hover tbody tr:hover { background-color: rgba(19,41,75,.04); }
+
+/* Badges that match brand */
+.badge.bg-primary { background-color: var(--il-blue) !important; }
+.badge.bg-secondary { background-color: #6B7280 !important; }
+
+/* Footer accent */
+footer.bg-dark { border-top: 4px solid var(--il-orange); }
+
+/* ==========================================================================
+   Page polish
+   ========================================================================== */
+header h1 { margin: 0; padding: 0; font-weight: 600; }
+.read-more { margin: -2em 0 0; }
+
+/* Optional inline list helper */
+.inline { list-style: none; padding: 0; margin: 0 0 -.5em; }
+.inline li { display: inline; }
+
+/* Simple pagination helper (works alongside Bootstrap) */
+.pagination { text-align:center; }
+.pagination ul { list-style:none; margin:0; padding:1em 0; }
+.pagination li { display:inline-block; margin:0 1em; font-weight:600; }

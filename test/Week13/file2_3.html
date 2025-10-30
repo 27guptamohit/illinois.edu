@@ -1,0 +1,339 @@
+<!-- Paste in: base.html -->
+<!-- New addition/changes: Cleaned and organized version of base.html. The only new changes that are made is addition of new navigation buttons. -->
+
+{% load static %}
+{% now "U" as ts %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}illinois.edu{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+  <!-- Local styles -->
+  <link rel="stylesheet" href="{% static 'css/normalize.css' %}?v={{ ts }}">
+  <link rel="stylesheet" href="{% static 'css/skeleton.css' %}?v={{ ts }}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ ts }}">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'css/illinois_logo.png' %}">
+  <meta name="theme-color" content="#13294B">
+</head>
+<body class="bg-light">
+
+  <!-- ===========================
+       HEADER / BRAND + AUTH BUTTON
+       =========================== -->
+  <header class="bg-primary text-white py-3 mb-4">
+    <div class="container d-flex align-items-center w-100">
+      <!-- Brand -->
+      <a class="d-inline-flex align-items-center text-white text-decoration-none"
+         href="{% url 'student-list-url' %}">
+        <img src="{% static 'css/illinois_logo.png' %}"
+             alt="Illinois logo"
+             width="36" height="36"
+             class="me-2">
+        <div class="lh-sm">
+          <h1 class="h4 mb-0">illinois.edu</h1>
+          <span class="small opacity-75">Course Information System</span>
+        </div>
+      </a>
+
+      <!-- Auth controls (right side) -->
+      <div class="ms-auto">
+        {% if user.is_authenticated %}
+          <form action="{% url 'logout_urlpattern' %}" method="post" class="d-inline-block">
+            {% csrf_token %}
+            <button class="btn btn-sm btn-outline-light" type="submit">
+              Log Out, {{ user.get_username }}
+            </button>
+          </form>
+        {% else %}
+          <a class="btn btn-sm btn-outline-light me-2"
+             href="{% url 'login_urlpattern' %}">
+            Log In
+          </a>
+          <a class="btn btn-sm btn-light text-primary fw-semibold"
+             href="{% url 'signup_urlpattern' %}">
+            Sign Up
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <!-- ===========================
+       MAIN NAV / FEATURE MAP
+       =========================== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom mb-4" aria-label="Primary">
+    <div class="container">
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNav"
+              aria-controls="mainNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="mainNav" class="collapse navbar-collapse">
+
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav gap-3">
+
+          <!-- =====================
+               DATA
+               ===================== -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dataMenu"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Data
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dataMenu">
+              <li>
+                <a class="dropdown-item" href="{% url 'student-list-url' %}">
+                  Students
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'section-list-url' %}">
+                  Sections
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'enrollment-list-url' %}">
+                  Registrations
+                </a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="px-3 text-muted small">
+                Auth protected views using LoginRequiredMixin
+              </li>
+            </ul>
+          </li>
+
+          <!-- =====================
+               FORMS
+               ===================== -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="formsMenu"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Forms
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="formsMenu">
+              <li class="dropdown-header small text-uppercase text-muted">Create Student</li>
+              <li>
+                <a class="dropdown-item" href="{% url 'function-add-student-url' %}">
+                  Function-based form
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'class-add-student-url' %}">
+                  Class-based form
+                </a>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+
+              <li class="dropdown-header small text-uppercase text-muted">Feedback Demo Form</li>
+              <li>
+                <a class="dropdown-item" href="{% url 'feedback-url' %}">
+                  Feedback Form
+                </a>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+              <li class="px-3 text-muted small">
+                Both GET (blank form) and POST (save)
+              </li>
+            </ul>
+          </li>
+
+          <!-- =====================
+               APIS / EXPORT
+               ===================== -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="apiMenu"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              APIs & Export
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="apiMenu">
+
+              <li class="dropdown-header small text-uppercase text-muted">Internal JSON APIs</li>
+              <li>
+                <a class="dropdown-item" href="{% url 'api-students' %}">
+                  /api/students/ (JSON list of students)
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'api-students' %}?q=alice">
+                  /api/students/?q=alice (search)
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'api-students-per-section' %}">
+                  /api/sections/students/ (counts for chart)
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'api-enrollments-per-section' %}">
+                  /api/sections/enrollments/ (all vs active)
+                </a>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+
+              <li class="dropdown-header small text-uppercase text-muted">Health Check / Ping</li>
+              <li>
+                <a class="dropdown-item" href="{% url 'api-ping-json' %}">
+                  ping-json (JsonResponse)
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'api-ping-httpresponse' %}">
+                  ping-httpresponse (HttpResponse)
+                </a>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+
+              <li class="dropdown-header small text-uppercase text-muted">External API Demo</li>
+              <li>
+                <a class="dropdown-item" href="{% url 'api-weather' %}">
+                  /api/weather/ (Open-Meteo example)
+                </a>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+
+              <li class="dropdown-header small text-uppercase text-muted">Download / Export</li>
+              <li>
+                <a class="dropdown-item" href="{% url 'export-students-csv' %}">
+                  Export Students (CSV)
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'export-students-json' %}">
+                  Export Students (JSON)
+                </a>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+              <li class="px-3 text-muted small">
+                Uses HttpResponse / JsonResponse as file downloads
+              </li>
+            </ul>
+          </li>
+
+          <!-- =====================
+               CHARTS / VIS
+               ===================== -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="chartsMenu"
+               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Charts
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="chartsMenu">
+              <li class="dropdown-header small text-uppercase text-muted">Matplotlib Images</li>
+              <li>
+                <a class="dropdown-item" href="{% url 'chart-sections' %}">
+                  Students per Section (PNG)
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'enrollments-chart-png' %}">
+                  Enrollments per Section (PNG)
+                </a>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+
+              <li class="dropdown-header small text-uppercase text-muted">Chart Page (HTML)</li>
+              <li>
+                <a class="dropdown-item" href="{% url 'enrollments-chart-page' %}">
+                  Enrollments Chart Page
+                </a>
+              </li>
+
+              <li><hr class="dropdown-divider"></li>
+              <li class="px-3 text-muted small">
+                Server-side image generation, no browser JS required
+              </li>
+            </ul>
+          </li>
+
+          <!-- =====================
+               REPORTS
+               ===================== -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'export-reports-url' %}">
+              Reports
+            </a>
+          </li>
+
+        </ul>
+        {% endif %}
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===========================
+       PAGE CONTENT BLOCKS
+       =========================== -->
+  <main class="container mb-5">
+    {% block content %}
+      <p class="text-muted">This is default content.</p>
+    {% endblock %}
+
+    {% block send_search %}{% endblock %}
+    {% block filter %}{% endblock %}
+    {% block stats %}{% endblock %}
+  </main>
+
+  <!-- ===========================
+       FOOTER
+       =========================== -->
+  <footer class="bg-dark text-white py-3 mt-4">
+    <div class="container text-center small">
+      <p class="mb-1">illinois.edu class demonstration</p>
+
+      <p class="mb-1">
+        Portions of this project make use of open-source frameworks:
+        <a href="https://getskeleton.com/" class="text-white" target="_blank" rel="noopener">
+          Skeleton CSS
+        </a>
+        by
+        <a href="https://github.com/dhg" class="text-white" target="_blank" rel="noopener">
+          Dave Pinkham
+        </a>
+        and
+        <a href="https://necolas.github.io/normalize.css/" class="text-white" target="_blank" rel="noopener">
+          Normalize.css
+        </a>
+        by
+        <a href="https://github.com/necolas" class="text-white" target="_blank" rel="noopener">
+          Nicolas Gallagher
+        </a>,
+        both under the MIT License.
+      </p>
+
+      <p class="mb-0">
+        Course content licensed under a
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/"
+           class="text-white" target="_blank" rel="noopener">
+          Creative Commons Attribution-ShareAlike 4.0 International License
+        </a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS (dropdowns, toggler, etc.) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

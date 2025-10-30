@@ -1,0 +1,22 @@
+
+  {{ form.as_p }} is a Django shortcut that automatically renders
+  all the form fields wrapped inside <p> tags.
+
+  Example output:
+      <p><label for="id_name">Your Name:</label>
+         <input type="text" name="name" required></p>
+
+      <p><label for="id_feedback">Feedback:</label>
+         <textarea name="feedback" required></textarea></p>
+
+  This saves you from writing individual <label> and <input> tags for each field.
+
+  ------------------------------------------------------------------
+  | Method            | Output                      | Example use   |
+  |--------------------|-----------------------------|----------------|
+  | {{ form.as_p }}    | wraps each field in <p> tags | simple, readable layout |
+  | {{ form.as_table }}| wraps each field as table rows | for table-based forms |
+  | {{ form.as_ul }}   | wraps each field in <li> tags | for list-style layout |
+  ------------------------------------------------------------------
+
+  {{ form.as_p }} is the most common for quick demos and small projects.
