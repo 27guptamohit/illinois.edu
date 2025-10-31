@@ -1,1 +1,672 @@
-[]
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$deZ3FaDHQC5U95e2qy2tV4$mlLlH0JHXQExgpGHVZGadyu9lUiI00Z4dZjE6EQPIgs=",
+    "last_login": "2025-10-30T01:43:49.519Z",
+    "is_superuser": true,
+    "username": "mohitg2",
+    "first_name": "",
+    "last_name": "",
+    "email": "mohitg2@illinois.edu",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-09-16T14:47:13.261Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$YHyd1JisXfYFwDXkJLUlvY$lhW+rIDDj88naXwqBefUHcmp6uGb/OQFS4HhlmdIVzQ=",
+    "last_login": "2025-10-27T04:42:28.836Z",
+    "is_superuser": false,
+    "username": "mohitg27",
+    "first_name": "",
+    "last_name": "",
+    "email": "mohitg27@illinois.edu",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-10-27T04:42:28.556Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2nqw0f3rnocx3s5xyf6l3xdmaxaytr6q",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8hgIu3fcbyMCMUjU0Ke3K-O_apAvd3nPOfYmE21rT1nlJE4mz0OL0u2UsD247oDu22yzL3NZlynJX5EG7HGfi5-Vw_w4q9vqtgUhRsEobPXAG5qvTQdnBGoAIXmXN6JhMdCEXyB6h2EgaHXoTkZx4fwDOYjeS:1vDYV2:_tfZ58N-EFAXLAOrvVsVTOjuWHDQmePX0VmOYs1QHW8",
+    "expire_date": "2025-11-11T01:27:48.604Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7mi7qnek5ze85rdhgtlzj3kylntqlamz",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8hgIu3fcbyMCMUjU0Ke3K-O_apAvd3nPOfYmE21rT1nlJE4mz0OL0u2UsD247oDu22yzL3NZlynJX5EG7HGfi5-Vw_w4q9vqtgUhRsEobPXAG5qvTQdnBGoAIXmXN6JhMdCEXyB6h2EgaHXoTkZx4fwDOYjeS:1v9cZz:gXi8YrCICH9CeReNdodczzP9UA2NCZ82JjaMNpOuk0I",
+    "expire_date": "2025-10-31T05:00:39.895Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ai6pj49c2ijlp4frqly27x7tqqr68fye",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8hgIu3fcbyMCMUjU0Ke3K-O_apAvd3nPOfYmE21rT1nlJE4mz0OL0u2UsD247oDu22yzL3NZlynJX5EG7HGfi5-Vw_w4q9vqtgUhRsEobPXAG5qvTQdnBGoAIXmXN6JhMdCEXyB6h2EgaHXoTkZx4fwDOYjeS:1v9bkP:uJefKtNjTNd-EuGbZQginWDfgws_Ul_LdLs8L8Nyjgg",
+    "expire_date": "2025-10-31T04:07:21.966Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "lfgi27zl5wslk5gicnp1yxp80ytvv03x",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8hgIu3fcbyMCMUjU0Ke3K-O_apAvd3nPOfYmE21rT1nlJE4mz0OL0u2UsD247oDu22yzL3NZlynJX5EG7HGfi5-Vw_w4q9vqtgUhRsEobPXAG5qvTQdnBGoAIXmXN6JhMdCEXyB6h2EgaHXoTkZx4fwDOYjeS:1vEHhd:uTGoJTK9YYdgrdRec7kwIazGfcUoDHtAfHaFlL4HhJM",
+    "expire_date": "2025-11-13T01:43:49.520Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xz0vswmsc6f9xt483xyvan7m3mqmb5bl",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8hgIu3fcbyMCMUjU0Ke3K-O_apAvd3nPOfYmE21rT1nlJE4mz0OL0u2UsD247oDu22yzL3NZlynJX5EG7HGfi5-Vw_w4q9vqtgUhRsEobPXAG5qvTQdnBGoAIXmXN6JhMdCEXyB6h2EgaHXoTkZx4fwDOYjeS:1uyWxt:69Tq69CcAVLSX4e8LJZQxeKTMIPxqBMfDq8EKSV4FoM",
+    "expire_date": "2025-09-30T14:47:29.838Z"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 1,
+  "fields": {
+    "code": "INFO-390-MG",
+    "name": "Web App Dev I",
+    "term": "Fall 2025"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 2,
+  "fields": {
+    "code": "INFO-490-MG",
+    "name": "Web App Dev II",
+    "term": "Spring 2026"
+  }
+},
+{
+  "model": "students.section",
+  "pk": 3,
+  "fields": {
+    "code": "INFO-590-MG",
+    "name": "Web App Dev III",
+    "term": "Fall 2026"
+  }
+},
+{
+  "model": "students.student",
+  "pk": 1,
+  "fields": {
+    "first_name": "Alice",
+    "last_name": "Johnson",
+    "nickname": "AJ",
+    "email": "alice@example.com",
+    "section": 1
+  }
+},
+{
+  "model": "students.student",
+  "pk": 2,
+  "fields": {
+    "first_name": "Bob",
+    "last_name": "Smith",
+    "nickname": "",
+    "email": "bob@example.com",
+    "section": 1
+  }
+},
+{
+  "model": "students.student",
+  "pk": 3,
+  "fields": {
+    "first_name": "Carol",
+    "last_name": "Lee",
+    "nickname": "",
+    "email": "carol@example.com",
+    "section": 2
+  }
+},
+{
+  "model": "students.student",
+  "pk": 4,
+  "fields": {
+    "first_name": "David",
+    "last_name": "Kim",
+    "nickname": "",
+    "email": "david.kim@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 5,
+  "fields": {
+    "first_name": "Eve",
+    "last_name": "Patel",
+    "nickname": "Evie",
+    "email": "eve.patel@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 6,
+  "fields": {
+    "first_name": "Frank",
+    "last_name": "Garcia",
+    "nickname": "",
+    "email": "frank.garcia@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 7,
+  "fields": {
+    "first_name": "Grace",
+    "last_name": "Hernandez",
+    "nickname": "Gracie",
+    "email": "grace.hernandez@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 8,
+  "fields": {
+    "first_name": "Hank",
+    "last_name": "Nguyen",
+    "nickname": "",
+    "email": "hank.nguyen@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 9,
+  "fields": {
+    "first_name": "Ivy",
+    "last_name": "Wong",
+    "nickname": "",
+    "email": "ivy.wong@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 10,
+  "fields": {
+    "first_name": "Jack",
+    "last_name": "Brown",
+    "nickname": "",
+    "email": "jack.brown@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 11,
+  "fields": {
+    "first_name": "Kara",
+    "last_name": "Wilson",
+    "nickname": "",
+    "email": "kara.wilson@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 12,
+  "fields": {
+    "first_name": "Leo",
+    "last_name": "Martinez",
+    "nickname": "",
+    "email": "leo.martinez@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 13,
+  "fields": {
+    "first_name": "Maya",
+    "last_name": "Adams",
+    "nickname": "",
+    "email": "maya.adams@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 14,
+  "fields": {
+    "first_name": "Noah",
+    "last_name": "Clark",
+    "nickname": "",
+    "email": "noah.clark@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 15,
+  "fields": {
+    "first_name": "Olivia",
+    "last_name": "Davis",
+    "nickname": "Liv",
+    "email": "olivia.davis@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 16,
+  "fields": {
+    "first_name": "Paul",
+    "last_name": "Rodriguez",
+    "nickname": "",
+    "email": "paul.rodriguez@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 17,
+  "fields": {
+    "first_name": "Quinn",
+    "last_name": "Lopez",
+    "nickname": "",
+    "email": "quinn.lopez@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 18,
+  "fields": {
+    "first_name": "Rita",
+    "last_name": "Gonzalez",
+    "nickname": "",
+    "email": "rita.gonzalez@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 19,
+  "fields": {
+    "first_name": "Sam",
+    "last_name": "Perez",
+    "nickname": "",
+    "email": "sam.perez@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 20,
+  "fields": {
+    "first_name": "Tina",
+    "last_name": "Hughes",
+    "nickname": "",
+    "email": "tina.hughes@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 21,
+  "fields": {
+    "first_name": "Uma",
+    "last_name": "Sanders",
+    "nickname": "",
+    "email": "uma.sanders@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 22,
+  "fields": {
+    "first_name": "Victor",
+    "last_name": "Murphy",
+    "nickname": "",
+    "email": "victor.murphy@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 23,
+  "fields": {
+    "first_name": "Wendy",
+    "last_name": "Foster",
+    "nickname": "",
+    "email": "wendy.foster@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 24,
+  "fields": {
+    "first_name": "Xavier",
+    "last_name": "Bennett",
+    "nickname": "",
+    "email": "xavier.bennett@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 25,
+  "fields": {
+    "first_name": "Yara",
+    "last_name": "Cruz",
+    "nickname": "",
+    "email": "yara.cruz@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 26,
+  "fields": {
+    "first_name": "Zane",
+    "last_name": "Mitchell",
+    "nickname": "",
+    "email": "zane.mitchell@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.student",
+  "pk": 27,
+  "fields": {
+    "first_name": "Ava",
+    "last_name": "Reed",
+    "nickname": "",
+    "email": "ava.reed@example.com",
+    "section": 3
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 1,
+  "fields": {
+    "student": 1,
+    "section": 1,
+    "enrolled_on": "2025-09-16",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 2,
+  "fields": {
+    "student": 2,
+    "section": 1,
+    "enrolled_on": "2025-09-16",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 3,
+  "fields": {
+    "student": 3,
+    "section": 2,
+    "enrolled_on": "2025-09-16",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 4,
+  "fields": {
+    "student": 4,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 5,
+  "fields": {
+    "student": 5,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 6,
+  "fields": {
+    "student": 6,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 7,
+  "fields": {
+    "student": 7,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 8,
+  "fields": {
+    "student": 8,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 9,
+  "fields": {
+    "student": 9,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 10,
+  "fields": {
+    "student": 10,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 11,
+  "fields": {
+    "student": 11,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 12,
+  "fields": {
+    "student": 12,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 13,
+  "fields": {
+    "student": 13,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 14,
+  "fields": {
+    "student": 14,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 15,
+  "fields": {
+    "student": 15,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 16,
+  "fields": {
+    "student": 16,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 17,
+  "fields": {
+    "student": 17,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 18,
+  "fields": {
+    "student": 18,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 19,
+  "fields": {
+    "student": 19,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 20,
+  "fields": {
+    "student": 20,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 21,
+  "fields": {
+    "student": 21,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 22,
+  "fields": {
+    "student": 22,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 23,
+  "fields": {
+    "student": 23,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 24,
+  "fields": {
+    "student": 24,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 25,
+  "fields": {
+    "student": 25,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 26,
+  "fields": {
+    "student": 26,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+},
+{
+  "model": "students.enrollment",
+  "pk": 27,
+  "fields": {
+    "student": 27,
+    "section": 3,
+    "enrolled_on": "2025-10-13",
+    "is_active": true
+  }
+}
+]
