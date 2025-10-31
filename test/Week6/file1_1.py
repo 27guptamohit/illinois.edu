@@ -18,5 +18,5 @@ def redirect_root_view(request):
     return redirect('student-list-url')
 
 # Step 2:
-# Go to illinois/urls.py or file1_2.py
+# Go to illinois/urls.py or file1_3.py
 # Import this view there.

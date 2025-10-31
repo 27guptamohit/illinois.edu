@@ -56,15 +56,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'illinois.wsgi.application'
 
-# 6) DATABASE
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        # put the DB in project-root/data/db.sqlite3
-        'NAME': BASE_DIR / 'data' / 'db.sqlite3',
-    }
-}
-
 # 7) AUTH VALIDATORS
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
