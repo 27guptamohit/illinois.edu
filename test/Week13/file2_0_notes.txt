@@ -1,8 +1,0 @@
-Given that we're now approaching the end of the syllabus, it is time to now clean the code that we've worked on yet.
-
-File 2.1: Cleaned and organized version of views.py
-File 2.2: Cleaned and organized version of urls.py
-File 2.3: Cleaned and organized version of base.html. The only new changes that are made is addition of new navigation buttons.
-
-P.S.: You can use chatGPT to feed in your code for helping you to organize it.
-In the current code, only structural changes were made but no changes were made to the past code.
