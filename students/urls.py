@@ -16,6 +16,7 @@ from .views import (
     ReportsView,
     export_students_csv,
     export_students_json,
+    VegaLiteAPI,
 )
 
 # =======================================================================================
@@ -54,6 +55,11 @@ urlpatterns = [
     path("charts/enrollments.png", enrollments_chart_png, name="enrollments-chart-png"),
 
     # -----------------------------------------------------------------------------------
+    # WEEK 12: VEGA-LITE CHARTS DEMO
+    # -----------------------------------------------------------------------------------
+    path("charts/vega-lite/", VegaLiteAPI.as_view(), name="chart-vega-lite"),
+
+    # -----------------------------------------------------------------------------------
     # WEEK 8.5: EXTERNAL DATA FETCH (Weather API)
     # -----------------------------------------------------------------------------------
     path("api/weather/", WeatherNow.as_view(), name="api-weather"),
@@ -74,4 +80,7 @@ urlpatterns = [
     path("api/sections/students/", views.api_students_per_section, name="api-students-per-section"),
     path("api/sections/enrollments/", views.api_enrollments_per_section, name="api-enrollments-per-section"),
     path("api/class-students/", StudentsAPI.as_view(), name="api-students"),
+
+
+
 ]

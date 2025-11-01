@@ -493,3 +493,13 @@ def signup_view(request):
         form = StudentSignUpForm()
 
     return render(request, "students/signup.html", {"form": form})
+
+
+# =======================================================================================
+# WEEK 15 : VEGA-LITE CHART DEMO
+# Author: MOHIT GUPTA
+# NOTE: Personal or Commercial use and sharing not permitted
+# =======================================================================================
+
+class VegaLiteAPI(TemplateView):
+    template_name = "students/vega-lite-illinois.html"

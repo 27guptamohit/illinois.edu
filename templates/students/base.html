@@ -1,5 +1,7 @@
 <!-- Paste in: base.html -->
-<!-- New addition/changes: Cleaned and organized version of base.html. The only new changes that are made is addition of new navigation buttons. -->
+<!-- New addition/changes: Made new blocks for vega-lite -->
+<!-- New addition/changes: Link to Vega-lite Chart Demo -->
+
 
 {% load static %}
 {% now "U" as ts %}
@@ -22,6 +24,15 @@
   <!-- Favicon -->
   <link rel="icon" href="{% static 'css/illinois_logo.png' %}">
   <meta name="theme-color" content="#13294B">
+
+  <!-- Vega-lite Stylesheets -->
+    {% block stylesheets %}
+
+    {% endblock %}
+
+
+
+
 </head>
 <body class="bg-light">
 
@@ -239,7 +250,14 @@
               Charts
             </a>
             <ul class="dropdown-menu" aria-labelledby="chartsMenu">
-              <li class="dropdown-header small text-uppercase text-muted">Matplotlib Images</li>
+
+                <!-- New addition/changes: Link to Vega-lite Chart Demo -->
+              <li>
+                <a class="dropdown-item" href="{% url 'chart-vega-lite' %}">
+                  Vega-Lite Demo | Author: Mohit Gupta
+                </a>
+              </li>
+                <li class="dropdown-header small text-uppercase text-muted">Matplotlib Images</li>
               <li>
                 <a class="dropdown-item" href="{% url 'chart-sections' %}">
                   Students per Section (PNG)
@@ -294,6 +312,7 @@
     {% block send_search %}{% endblock %}
     {% block filter %}{% endblock %}
     {% block stats %}{% endblock %}
+    {% block vega-lite-main %}{% endblock %}
   </main>
 
   <!-- ===========================
